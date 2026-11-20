@@ -1,0 +1,59 @@
+language: auto            # auto | id | en
+whisper:
+  model: large-v3-turbo
+  compute_type: int8_float16
+  device: auto             # auto | cuda | cpu  (AMD or no NVIDIA GPU: use cpu)
+llm:
+  backend: ollama       # llama_cpp | ollama
+  model_path: models/qwen-7b-instruct-q4_k_m.gguf   # change to the model you downloaded
+  ollama_model: qwen2.5:7b
+  ollama_url: http://localhost:11434
+  n_ctx: 8192
+  n_gpu_layers: -1
+selection:
+  num_clips: 8
+  min_seconds: 25
+  max_seconds: 75
+  window_minutes: 4
+  window_overlap_seconds: 45
+  max_windows: 20          # pre-filter: only the most "interesting" windows go to the LLM
+  per_window: 3
+  self_check: false
+  dedup_threshold: 0.75
+  ending_max_adjust_sentences: 3
+  weights:
+    llm: 0.55
+    audio_energy: 0.15
+    laughter: 0.10
+    speech_rate: 0.05
+    heatmap: 0.15
+teaser:
+  enabled: true
+  max_seconds: 3
+transcript_fix:
+  glossary_path: glossary.txt
+  llm_correction: true
+cache:
+  dir: work
+  keep: true
+output:
+  dir: output
+  summary: [md, csv]
+reframe:
+  mode: center             # center | blur  (face/speaker = Phase 2, falls back to center)
+  smoothing: 0.15
+  dead_zone: 0.12
+  fallback: blur
+captions:
+  preset: tiktok           # tiktok | clean
+  words_per_line: 3
+  highlight_color: "#FFD400"
+  font: "Montserrat ExtraBold"
+  font_size: 78
+  margin_v_pct: 0.22
+render:
+  encoder: h264_nvenc      # automatic fallback to libx264
+  resolution: [1080, 1920]
+  cq: 19
+  loudnorm: true
+  end_padding: 0.4

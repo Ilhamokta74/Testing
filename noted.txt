@@ -1,0 +1,1 @@
+clipper run --url "https://www.youtube.com/watch?v=Au3mN4AbylQ" --clips 8 --min 25 --max 75 --lang id

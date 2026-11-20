@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: clipper
+Version: 0.1.0
+Summary: Local/offline video clipper: long video -> vertical 9:16 clips with captions
+Requires-Python: >=3.10
+Requires-Dist: yt-dlp
+Requires-Dist: faster-whisper
+Requires-Dist: numpy
+Requires-Dist: pyyaml
+Requires-Dist: typer
+Requires-Dist: rich
+Requires-Dist: rapidfuzz
+Provides-Extra: llm
+Requires-Dist: llama-cpp-python; extra == "llm"
+Provides-Extra: vision
+Requires-Dist: opencv-python; extra == "vision"
+Requires-Dist: mediapipe; extra == "vision"
+Requires-Dist: scenedetect; extra == "vision"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

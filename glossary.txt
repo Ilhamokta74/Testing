@@ -1,0 +1,1 @@
+# one custom term per line (names, jargon). Used as Whisper prompt + spelling fix.
