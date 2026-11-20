@@ -1,1 +1,6 @@
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -e .
+
 clipper run --url "https://www.youtube.com/watch?v=Au3mN4AbylQ" --clips 8 --min 25 --max 75 --lang id
